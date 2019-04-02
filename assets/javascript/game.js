@@ -1,20 +1,19 @@
 //define variables
 var words = ["rocketship", "alien", "astronaut", "planet", "star", "asteroid", "comet", "extraterrestrial"];
 var lettersGuessed = []
-var guessesRemaining = 9;
+var guessesRemaining = 10;
 var losses = 0;
 var wins = 0;
 var dashedWord = [];
 var randomWord = "";
 
-resetFunc()
 
-// -choose random word// -loop to get number of letters of random word
+// resetFunc()
+
+
 
 var randomWord = words[Math.floor(Math.random() * words.length)];
 console.log(randomWord);
-
-// -display the number of spaces appropriate
 
 
 for (var i = 0; i < randomWord.length; i++) {
@@ -22,8 +21,8 @@ for (var i = 0; i < randomWord.length; i++) {
     dashedWord[i] = " _ ";
     updateDashedWord();
 
-}
-// define key events, //only alphabet keys are logged - keycode
+};
+
 document.onkeyup = function (event) {
 
 
@@ -31,7 +30,7 @@ document.onkeyup = function (event) {
         console.log(event.key);
         var foundLetter = false;
         for (var i = 0; i < randomWord.length; i++) {
-            // 
+
 
             if (randomWord[i] == event.key) {
                 dashedWord[i] = event.key
@@ -44,28 +43,47 @@ document.onkeyup = function (event) {
             lettersGuessed.push(event.key);
             guessesRemaining--;
         }
+    
+        updateDashedWord();
 
-        if (guessesRemaining == 0) {
-            alert("YOU LOSE")
-            resetFunc()
-            
-        }
-        
-     
-        updateDashedWord()
     }
 
-}
+
+        if (dashedWord.indexOf(" _ ") === -1) {
+            alert("YOU WIN");
+            wins++;
+            resetFunc();
+        }
+
+          if (guessesRemaining == 0) {
+            alert("YOU LOSE");
+            losses++;
+            resetFunc();
+
+        }
+        updateDashedWord();
+    
+
+};
+
+
+
 
 function updateDashedWord() {
     document.getElementById("word").textContent = dashedWord.join('');
     document.getElementById("wrongletters").textContent = lettersGuessed;
     document.getElementById("remaining").textContent = guessesRemaining;
     document.getElementById("losses").textContent = losses;
-    
-}
+    document.getElementById("wins").textContent = wins;
+
+};
+
+
 
 function resetFunc() {
+
+    lettersGuessed = [];
+    guessesRemaining = 10;
     randomWord = words[Math.floor(Math.random() * words.length)];
     console.log(randomWord);
 
@@ -75,32 +93,10 @@ function resetFunc() {
 
     }
 
-  
-
     updateDashedWord();
-}
-
-// unction, loop through the word - if keypressed = letter in array
-
-//create functions
-//resets after words answered to reset
+};
 
 
-
-// -display on html 
-// - count down number of guesses guessesRemaining
-// - display inncorrect guessed letters
+//figure out why the reset function is not resetting the dashedWord to the same spaces as the new randomWord 
 
 
-//set win condition
-//reset guesses remaining, letters guessed
-
-
-
-// var playerLetter = event.key;
-
-//FUNCTION: 
-
-
-
-//one f

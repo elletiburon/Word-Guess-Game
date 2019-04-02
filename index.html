@@ -17,6 +17,11 @@
             background-image: url("assets/images/background2.jpg");
         }
 
+        .container {
+            width: 100%;
+            height: auto;
+        }
+
         #game {
             background-color: blueviolet;
             border: 3px solid purple;
@@ -35,47 +40,47 @@
 <body>
 
     <!-- WRITE YOUR HTML HERE -->
-
-    <div class="row">
-        <div class="column-lg-6">
-            <img src="assets/images/astronaut3.png">
+    <div class="wrap">
+        <div class="row">
+            <div class="column-lg-6">
+                <img src="assets/images/astronaut3.png">
+            </div>
+            <div class="column-lg-6">
+                <img src="assets/images/astronaut5.png">
+            </div>
         </div>
-        <div class="column-lg-6">
-            <img src="assets/images/astronaut5.png">
+
+        <div class="container">
+            <div id="game">
+                <h4 class="text-center">Press Any Key To Start!</h4>
+                <br>
+
+                <h5 class="text-center">CURRENT WORD</h5>
+                <div class="text-center" id="word"></div>
+                <br>
+
+                <h5 class="text-center">GUESSES REMAINING</h5>
+                <div class="text-center" id="remaining"></div>
+                <br>
+
+                <h5 class="text-center">LETTERS GUESSED</h5>
+                <div class="text-center" id="wrongletters"></div>
+
+                <h5 class="text-center">WINS</h5>
+                <div class="text-center" id="wins"></div>
+
+                <h5 class="text-center">LOSSES</h5>
+                <div class="text-center" id="losses"></div>
+
+            </div>
+
         </div>
     </div>
 
 
-    <div class="container">
-        <div id="game">
-            <h4 class="text-center">Press Any Key To Start!</h4>
-            <br>
 
 
-
-            <h5 class="text-center">CURRENT WORD</h5>
-            <div class="text-center" id="word"></div>
-            <br>
-
-            <h5 class="text-center">GUESSES REMAINING</h5>
-            <div class="text-center" id="remaining"></div>
-            <br>
-
-            <h5 class="text-center">LETTERS GUESSED</h5>
-            <div class="text-center" id="wrongletters"></div>
-
-            <h5 class="text-center">WINS</h5>
-            <div class="text-center" id="wins"></div>
-
-            <h5 class="text-center">LOSSES</h5>
-            <div class="text-center" id="losses"></div>
-
-
-
-
-
-
-        </div>
+ 
 
 
 
@@ -84,11 +89,9 @@
 
 
 
+    <script src="assets/javascript/game.js">
 
-
-        <script src="assets/javascript/game.js">
-        
-        </script>
+    </script>
 
 
 
