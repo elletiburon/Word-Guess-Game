@@ -50,9 +50,12 @@ document.onkeyup = function (event) {
 
 
         if (dashedWord.indexOf(" _ ") === -1) {
-            alert("YOU WIN");
-            wins++;
-            resetFunc();
+            setTimeout(function(){
+                alert("YOU WIN");
+                wins++;
+                resetFunc();
+
+            }, 0)
         }
 
           if (guessesRemaining == 0) {
@@ -86,6 +89,7 @@ function resetFunc() {
     guessesRemaining = 10;
     randomWord = words[Math.floor(Math.random() * words.length)];
     console.log(randomWord);
+    dashedWord=[];
 
     for (var i = 0; i < randomWord.length; i++) {
         console.log(randomWord.charAt(i));
